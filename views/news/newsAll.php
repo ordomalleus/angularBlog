@@ -11,13 +11,15 @@ header( 'Content-Type: text/html; charset=utf-8' );
     <link href="views/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
     <link href="views/css/colorbox.css" rel="stylesheet" type="text/css"/>
     <link href="views/css/my.css" rel="stylesheet" type="text/css"/>
+    <script src="views/js/angular.js" type="text/javascript"></script>
+    <script src="views/js/angularjs/controller/controller.js" type="text/javascript"></script>
     <script src="views/js/jquery-1.11.3.min.js" type="text/javascript"></script>
     <script src="views/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="views/js/jquery.colorbox-min.js" type="text/javascript"></script>
     <script src="views/js/my.js" type="text/javascript"></script>
 </head>
 <body>
-<section>
+<section data-ng-app="phonecatApp" data-ng-controller="PhoneListCtrl">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -27,19 +29,12 @@ header( 'Content-Type: text/html; charset=utf-8' );
                     <a href="index.php?ctrl=news&act=AddForm" type="button" class="btn btn-success">Добавить новость</a>
                 </div>
                 <div>
-                    <?php foreach ($news as $new): ?>
-                        <div>
-                            <h2>
-                                <a href="<?php echo 'index.php?ctrl=news&act=ShowOne&id='.$new->id; ?>">
-                                    <?php echo $new->title; ?>
-                                </a>
-                            </h2>
-
-                            <div>
-                                <p><?php echo $new->text; ?></p>
-                            </div>
-                        </div>
-                    <?php endforeach ?>
+                    <p>Время {{today | date: 'dd / MM / yyyy  H:m:s'}}</p>
+                    <div class="all-news-container">
+                        <h2>{{<?php ?>}}</h2>
+                        <p></p>
+                    </div>
+                    {{<?php print_r($news); ?> | json}}
                 </div>
             </div>
         </div>

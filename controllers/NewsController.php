@@ -7,9 +7,12 @@ class newsController
     {
 
         $newsViews  = News::getAll();
+        //$newsViews  = News::getJson($newsViews);
         $view       = new Views();
-        $view->news = $newsViews;
-        $view->display( 'news/newsAll.php' );
+        //$view->news = $newsViews;
+        //var_dump($newsViews);die;
+        //$view->display( 'news/newsAll.php' );
+        $view->getJson($newsViews);
     }
 
     public function actionShowOne()

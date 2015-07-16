@@ -8,8 +8,8 @@ class Views
     
     
     //пустое значение если от корня или папку в /foo/
-    protected $redirectBase = '/';
-    public $base = '/';
+    protected $redirectBase = '/blog/';
+    public $base = 'blog';
 
     //Магия в ООП php. Задает произвольные свойства у объекта
     public function __set( $key, $value )
@@ -67,5 +67,13 @@ class Views
 
         return count($this->data);
 
+    }
+    
+    //выкинуть данные в формате json
+    public function getJson($value)
+    {
+        
+        echo $value = json_encode($value);
+        
     }
 }
